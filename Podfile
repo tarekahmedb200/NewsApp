@@ -9,5 +9,6 @@ target 'NewsApp' do
 pod 'RxSwift' 
     pod 'RxCocoa'
 pod 'FMDB'
+pod 'Kingfisher'
 
 end

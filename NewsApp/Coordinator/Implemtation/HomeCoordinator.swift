@@ -8,12 +8,29 @@
 import UIKit
 
 
-class HomeCoordinator : Coordinator {
+class HomeCoordinator : HomeCoordinatorProtocol {
     
+    
+
     var navigationController: UINavigationController
+    var newsRepository : NewsRepository
+    
     
     init(navigationController:UINavigationController) {
         self.navigationController = navigationController
+        
+        func getNewsRepository() -> NewsRepository {
+            let remoteApi = getRemotApi()
+            let newsRepositoryImplementation = NewsRepositoryImplementation(remoteApi: remoteApi)
+            return newsRepositoryImplementation
+        }
+        
+        func getRemotApi() -> RemoteApi {
+            let remoteApi = NewApi()
+            return remoteApi
+        }
+        
+        self.newsRepository = getNewsRepository()
     }
     
     func start() {
@@ -25,7 +42,15 @@ class HomeCoordinator : Coordinator {
         self.navigationController.pushViewController(homeViewController, animated: true)
     }
     
-    private func getHomeViewModel() -> HomeViewModel{
-        return HomeViewModel()
+    private func getHomeViewModel() -> HomeViewModel {
+        let homeViewModel = HomeViewModel(newsRepository: newsRepository, homeCoordinator: self)
+        return homeViewModel
     }
+    
+
+    func navigateToArticleDetailsViewController(_ article: Article) {
+        let atricleDetailsCoordinator = ArticleDetailsCoordinator(navigationController: self.navigationController, newsRepository: newsRepository, article: article)
+        atricleDetailsCoordinator.start()
+    }
+
 }
