@@ -16,6 +16,9 @@ class ArticleDetailsViewController : UIViewController {
     let disposeBag = DisposeBag()
     
     
+    @IBOutlet weak var rateTextField: UITextField!
+    @IBOutlet weak var rateButtin: UIButton!
+    
     @IBOutlet weak var articleImage: UIImageView!
     @IBOutlet weak var articleDateLabel: UILabel!
     @IBOutlet weak var articleTitleLabel: UILabel!
@@ -23,15 +26,9 @@ class ArticleDetailsViewController : UIViewController {
     @IBOutlet weak var articelAuthorLabel: UILabel!
     @IBOutlet weak var articelContentText: UITextView!
     
-    
+   
     lazy var activityIndicator : UIActivityIndicatorView  = {
-        let activityIndicator = UIActivityIndicatorView()
-        activityIndicator.color = UIColor.white
-        activityIndicator.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.frame = self.view.frame
-        self.view.addSubview(activityIndicator)
-        activityIndicator.style = .large
+        let activityIndicator = UIUtitles.shared.createActivityIndicator(self)
         return activityIndicator
     }()
     
@@ -47,10 +44,10 @@ class ArticleDetailsViewController : UIViewController {
         return articleDetailsViewController
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupObserver()
+        setupTextFiledObserver()
     }
     
     private func setupObserver() {
@@ -62,8 +59,22 @@ class ArticleDetailsViewController : UIViewController {
             case .loadingData:
                 weakSelf.activityIndicator.stopAnimating()
                 weakSelf.setupUI()
+            case .showAlertMessage:
+                weakSelf.showAlertRateConfirmationAlertMessage()
             }
         }).disposed(by: disposeBag)
+    }
+    
+    private func setupTextFiledObserver() {
+        rateTextField.rx.text.orEmpty
+            .asObservable()
+            .subscribe( onNext: { text in
+                guard let number = Int(text)  else {
+                    return
+                }
+                self.rateButtin.isEnabled = (number > 0 && number < 6)
+                self.rateButtin.backgroundColor = (number > 0 && number < 6) ? .systemBlue : .systemGray
+            }).disposed(by: disposeBag)
     }
     
     private func setupUI() {
@@ -75,6 +86,17 @@ class ArticleDetailsViewController : UIViewController {
         articelSourceLabel.text = viewModel.articleSourceName
         articelAuthorLabel.text = viewModel.articleAuthorName
         articelContentText.text = viewModel.articleContent
+        rateButtin.isEnabled = false
+        rateButtin.backgroundColor = UIColor.systemGray
     }
+   
 
+    @IBAction func saveButtonClicked(_ sender: UIButton) {
+        viewModel.onAction(action: .clickButton)
+    }
+    
+    private func showAlertRateConfirmationAlertMessage() {
+        UIUtitles.shared.showAlertMessage(title: "Done", message: "Thanks For Rating", self)
+    }
+    
 }

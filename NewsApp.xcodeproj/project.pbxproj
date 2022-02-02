@@ -17,7 +17,6 @@
 		913FF32627A9C9AB00E0D9FF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FF32527A9C9AB00E0D9FF /* HomeViewController.swift */; };
 		913FF32A27A9D2DD00E0D9FF /* RemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FF32927A9D2DD00E0D9FF /* RemoteApi.swift */; };
 		913FF32D27A9D31100E0D9FF /* NewApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FF32C27A9D31100E0D9FF /* NewApi.swift */; };
-		913FF33027A9D36D00E0D9FF /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FF32F27A9D36D00E0D9FF /* CustomError.swift */; };
 		913FF33727A9D4D600E0D9FF /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FF33627A9D4D600E0D9FF /* Response.swift */; };
 		913FF33A27A9D4E500E0D9FF /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FF33927A9D4E500E0D9FF /* Article.swift */; };
 		913FF33D27A9D62F00E0D9FF /* ArticleSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FF33C27A9D62F00E0D9FF /* ArticleSource.swift */; };
@@ -32,6 +31,9 @@
 		913FF36227AA06FF00E0D9FF /* ArticleDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FF36127AA06FF00E0D9FF /* ArticleDetailsViewController.swift */; };
 		913FF36527AA071500E0D9FF /* ArticleDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FF36427AA071500E0D9FF /* ArticleDetailsViewModel.swift */; };
 		913FF38027AA1E3B00E0D9FF /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FF37F27AA1E3B00E0D9FF /* String+Extensions.swift */; };
+		913FF38F27AAA0E100E0D9FF /* NewsDataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FF38E27AAA0E100E0D9FF /* NewsDataStoreProtocol.swift */; };
+		913FF39227AAA13300E0D9FF /* FMDBDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FF39127AAA13300E0D9FF /* FMDBDataStore.swift */; };
+		9166044627AAED5C0047C647 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166044527AAED5C0047C647 /* ConnectionManager.swift */; };
 		DA295968D8DD617DD2114F53 /* Pods_NewsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875B8DFC1532EC3B2DF0A2B4 /* Pods_NewsApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +52,6 @@
 		913FF32527A9C9AB00E0D9FF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		913FF32927A9D2DD00E0D9FF /* RemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteApi.swift; sourceTree = "<group>"; };
 		913FF32C27A9D31100E0D9FF /* NewApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewApi.swift; sourceTree = "<group>"; };
-		913FF32F27A9D36D00E0D9FF /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		913FF33627A9D4D600E0D9FF /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		913FF33927A9D4E500E0D9FF /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		913FF33C27A9D62F00E0D9FF /* ArticleSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleSource.swift; sourceTree = "<group>"; };
@@ -65,6 +66,9 @@
 		913FF36127AA06FF00E0D9FF /* ArticleDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsViewController.swift; sourceTree = "<group>"; };
 		913FF36427AA071500E0D9FF /* ArticleDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsViewModel.swift; sourceTree = "<group>"; };
 		913FF37F27AA1E3B00E0D9FF /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		913FF38E27AAA0E100E0D9FF /* NewsDataStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDataStoreProtocol.swift; sourceTree = "<group>"; };
+		913FF39127AAA13300E0D9FF /* FMDBDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMDBDataStore.swift; sourceTree = "<group>"; };
+		9166044527AAED5C0047C647 /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		A07F0470C4F296F18AA55767 /* Pods-NewsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsApp.debug.xcconfig"; path = "Target Support Files/Pods-NewsApp/Pods-NewsApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +105,7 @@
 		913FF2EF27A892C800E0D9FF /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				913FF38B27AAA0B000E0D9FF /* NewsDataStore */,
 				913FF37E27AA1E2800E0D9FF /* Extensions */,
 				913FF33F27A9D69A00E0D9FF /* Helpers */,
 				913FF31827A9C70300E0D9FF /* Repositories */,
@@ -145,7 +150,6 @@
 		913FF30E27A9C5E500E0D9FF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				913FF32F27A9D36D00E0D9FF /* CustomError.swift */,
 				913FF33627A9D4D600E0D9FF /* Response.swift */,
 				913FF33927A9D4E500E0D9FF /* Article.swift */,
 				913FF33C27A9D62F00E0D9FF /* ArticleSource.swift */,
@@ -245,6 +249,7 @@
 			children = (
 				913FF34027A9D78800E0D9FF /* Global.swift */,
 				913FF35827A9E4FD00E0D9FF /* UIUtitles.swift */,
+				9166044527AAED5C0047C647 /* ConnectionManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -273,6 +278,31 @@
 				913FF37F27AA1E3B00E0D9FF /* String+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		913FF38B27AAA0B000E0D9FF /* NewsDataStore */ = {
+			isa = PBXGroup;
+			children = (
+				913FF38D27AAA0C300E0D9FF /* Implementation */,
+				913FF38C27AAA0BB00E0D9FF /* Protocols */,
+			);
+			path = NewsDataStore;
+			sourceTree = "<group>";
+		};
+		913FF38C27AAA0BB00E0D9FF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				913FF38E27AAA0E100E0D9FF /* NewsDataStoreProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		913FF38D27AAA0C300E0D9FF /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				913FF39127AAA13300E0D9FF /* FMDBDataStore.swift */,
+			);
+			path = Implementation;
 			sourceTree = "<group>";
 		};
 		ADF0B3F104C1F3E33CD075FE /* Frameworks */ = {
@@ -410,6 +440,7 @@
 				913FF33A27A9D4E500E0D9FF /* Article.swift in Sources */,
 				913FF38027AA1E3B00E0D9FF /* String+Extensions.swift in Sources */,
 				913FF34427A9D8B800E0D9FF /* NewsRepository.swift in Sources */,
+				913FF39227AAA13300E0D9FF /* FMDBDataStore.swift in Sources */,
 				913FF35927A9E4FD00E0D9FF /* UIUtitles.swift in Sources */,
 				913FF36227AA06FF00E0D9FF /* ArticleDetailsViewController.swift in Sources */,
 				913FF34727A9D90800E0D9FF /* NewsRepositoryImplementation.swift in Sources */,
@@ -419,12 +450,13 @@
 				913FF32D27A9D31100E0D9FF /* NewApi.swift in Sources */,
 				913FF34127A9D78800E0D9FF /* Global.swift in Sources */,
 				913FF33727A9D4D600E0D9FF /* Response.swift in Sources */,
+				9166044627AAED5C0047C647 /* ConnectionManager.swift in Sources */,
 				913FF31C27A9C74600E0D9FF /* HomeViewModel.swift in Sources */,
 				913FF33D27A9D62F00E0D9FF /* ArticleSource.swift in Sources */,
 				913FF35F27AA068700E0D9FF /* HomeCoordinatorProtocol.swift in Sources */,
 				913FF34E27A9DCBD00E0D9FF /* ArticleHeadlineTableViewCell.swift in Sources */,
-				913FF33027A9D36D00E0D9FF /* CustomError.swift in Sources */,
 				913FF32A27A9D2DD00E0D9FF /* RemoteApi.swift in Sources */,
+				913FF38F27AAA0E100E0D9FF /* NewsDataStoreProtocol.swift in Sources */,
 				913FF32227A9C84C00E0D9FF /* HomeCoordinator.swift in Sources */,
 				913FF32627A9C9AB00E0D9FF /* HomeViewController.swift in Sources */,
 				913FF35C27AA04BB00E0D9FF /* ArticleDetailsCoordinator.swift in Sources */,

@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+
+protocol NewsDataStoreProtocol : class {
+    func save(_ articles:[Article])
+    func getArticles(completion:@escaping (Result<[Article],CustomErrorModel>) -> Void)
+}

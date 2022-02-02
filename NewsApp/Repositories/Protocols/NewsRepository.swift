@@ -9,5 +9,7 @@ import Foundation
 
 
 protocol NewsRepository {
-    func getArticles(with endPoint : EndPoint,completion:@escaping (Result<[Article],CustomErrorModel>) -> Void)
+    func getArticlesRemotley(with endPoint : EndPoint,completion:@escaping (Result<[Article],CustomErrorModel>) -> Void)
+    
+    func getArticlesOffline(completion:@escaping (Result<[Article],CustomErrorModel>) -> Void)
 }

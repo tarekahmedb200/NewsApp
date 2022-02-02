@@ -28,10 +28,7 @@ class NewApi : RemoteApi {
             }
             
             let jsonDecode = JSONDecoder()
-            
-            let dd = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
-            print(dd)
-            
+                        
             do {
                 let responseData = try jsonDecode.decode(Response.self, from: data)
                 completion(.success(responseData.articles))

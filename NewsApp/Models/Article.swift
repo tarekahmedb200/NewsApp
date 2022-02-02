@@ -10,13 +10,13 @@ import Foundation
 
 struct Article : Codable {
     
-    var source : ArticleSource
-    var author : String?
+    
     var title: String
+    var content: String?
     var imageUrl : String?
     var publishedAt: String
-    var content: String?
-    
+    var source : ArticleSource
+    var author : String?
     enum CodingKeys : String , CodingKey {
         case source = "source"
         case author

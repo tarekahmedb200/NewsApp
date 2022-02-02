@@ -11,7 +11,6 @@ import UIKit
 class HomeCoordinator : HomeCoordinatorProtocol {
     
     
-
     var navigationController: UINavigationController
     var newsRepository : NewsRepository
     
@@ -21,13 +20,19 @@ class HomeCoordinator : HomeCoordinatorProtocol {
         
         func getNewsRepository() -> NewsRepository {
             let remoteApi = getRemotApi()
-            let newsRepositoryImplementation = NewsRepositoryImplementation(remoteApi: remoteApi)
+            let newDataStore = getNewDataStore()
+            let newsRepositoryImplementation = NewsRepositoryImplementation(remoteApi: remoteApi,newsDataStore: newDataStore)
             return newsRepositoryImplementation
         }
         
         func getRemotApi() -> RemoteApi {
             let remoteApi = NewApi()
             return remoteApi
+        }
+        
+        func getNewDataStore() -> NewsDataStoreProtocol {
+            let newsDataStore = FMDBDataStore()
+            return newsDataStore
         }
         
         self.newsRepository = getNewsRepository()
@@ -47,7 +52,6 @@ class HomeCoordinator : HomeCoordinatorProtocol {
         return homeViewModel
     }
     
-
     func navigateToArticleDetailsViewController(_ article: Article) {
         let atricleDetailsCoordinator = ArticleDetailsCoordinator(navigationController: self.navigationController, newsRepository: newsRepository, article: article)
         atricleDetailsCoordinator.start()

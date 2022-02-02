@@ -8,27 +8,22 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SnapKit
 
 class HomeViewController : UIViewController {
         
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noResultsView: UIView!
+    @IBOutlet weak var offlineModeView: UIView!
     
     var viewModel : HomeViewModel!
     var disposeBag = DisposeBag()
     
-    
     lazy var activityIndicator : UIActivityIndicatorView  = {
-        let activityIndicator = UIActivityIndicatorView()
-        activityIndicator.color = UIColor.white
-        activityIndicator.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.frame = self.view.frame
-        self.view.addSubview(activityIndicator)
-        activityIndicator.style = .large
+        let activityIndicator = UIUtitles.shared.createActivityIndicator(self)
         return activityIndicator
     }()
     
-
     static func instantiate(with ViewModel: HomeViewModel) -> HomeViewController? {
         let storyBoard = UIStoryboard(name: "Main", bundle: .main)
         
@@ -40,12 +35,17 @@ class HomeViewController : UIViewController {
         return homeViewController
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         registerCells()
         setupObserver()
+        setupNoResultsView()
+        setupOfflineModeView()
     }
+    
 
     private func setupTableView() {
         tableView.delegate = self
@@ -65,10 +65,35 @@ class HomeViewController : UIViewController {
             case .loadingData:
                 weakSelf.activityIndicator.stopAnimating()
                 weakSelf.tableView.reloadData()
+            case .showErrorMessage(let errorMessage):
+                weakSelf.activityIndicator.stopAnimating()
+                weakSelf.showErrorMessage(errorMessage)
             case .noresults:
-                break
+                weakSelf.noResultsView.isHidden = false
+            case .showOfflineModeView:
+                weakSelf.offlineModeView.snp.updateConstraints { (make) in
+                    make.height.equalTo(75)
+                }
             }
         }).disposed(by: disposeBag)
+    }
+    
+    private func setupNoResultsView() {
+        self.view.addSubview(noResultsView)
+        noResultsView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        noResultsView.isHidden = true
+    }
+
+    private func showErrorMessage(_ errorMessage:String) {
+        UIUtitles.shared.showAlertMessage(title:"Error", message: errorMessage, self)
+    }
+    
+    private func setupOfflineModeView() {
+        offlineModeView.snp.makeConstraints { (make) in
+            make.height.equalTo(0)
+        }
     }
 
 }

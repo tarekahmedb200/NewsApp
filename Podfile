@@ -10,5 +10,6 @@ pod 'RxSwift'
     pod 'RxCocoa'
 pod 'FMDB'
 pod 'Kingfisher'
+pod 'SnapKit'
 
 end

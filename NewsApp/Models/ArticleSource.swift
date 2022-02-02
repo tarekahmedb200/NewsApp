@@ -9,5 +9,5 @@ import Foundation
 
 
 struct ArticleSource : Codable {
-    var name : String
+    var name : String?
 }

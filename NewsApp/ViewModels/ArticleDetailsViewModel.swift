@@ -66,17 +66,18 @@ class ArticleDetailsViewModel  {
     enum State {
         case gettingData
         case loadingData
+        case showAlertMessage
     }
 
     enum Action {
-        case clickButton(rate:Int)
+        case clickButton
     }
 
     
    func onAction(action:Action)  {
     switch action {
-        case .clickButton(let rate):
-            print(rate)
+        case .clickButton:
+            viewState.accept(.showAlertMessage)
     }
    }
 }
