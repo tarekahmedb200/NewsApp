@@ -75,16 +75,33 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rvb-ab-eSC">
+                            <rect key="frame" x="91" y="386" width="100" height="30"/>
+                            <color key="backgroundColor" name="AccentColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="ICv-8b-dnL"/>
+                                <constraint firstAttribute="height" constant="30" id="PSL-Sq-NuE"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="Retry">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="retryButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="61r-TW-f8L"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="AMK-lK-jci"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="AMK-lK-jci" firstAttribute="bottom" secondItem="Poc-9q-Tz5" secondAttribute="bottom" constant="107" id="0h7-l1-wVm"/>
                         <constraint firstItem="udC-0m-cdF" firstAttribute="leading" secondItem="AMK-lK-jci" secondAttribute="leading" id="5m9-Cc-3ms"/>
                         <constraint firstItem="Poc-9q-Tz5" firstAttribute="centerX" secondItem="Sy0-EC-0F5" secondAttribute="centerX" id="9JX-qR-F24"/>
+                        <constraint firstItem="Rvb-ab-eSC" firstAttribute="top" secondItem="Poc-9q-Tz5" secondAttribute="bottom" constant="45" id="WAh-17-VfI"/>
                         <constraint firstItem="udC-0m-cdF" firstAttribute="top" secondItem="AMK-lK-jci" secondAttribute="top" id="eyc-iY-B0S"/>
+                        <constraint firstItem="AMK-lK-jci" firstAttribute="bottom" secondItem="Rvb-ab-eSC" secondAttribute="bottom" constant="32" id="lm5-dW-TzH"/>
                         <constraint firstItem="udC-0m-cdF" firstAttribute="centerX" secondItem="Sy0-EC-0F5" secondAttribute="centerX" id="r4A-wW-LKv"/>
                         <constraint firstItem="udC-0m-cdF" firstAttribute="trailing" secondItem="AMK-lK-jci" secondAttribute="trailing" id="wy1-Jd-j6t"/>
+                        <constraint firstItem="Rvb-ab-eSC" firstAttribute="centerX" secondItem="Sy0-EC-0F5" secondAttribute="centerX" id="xqe-Cn-OTQ"/>
                     </constraints>
                 </view>
             </objects>
@@ -170,7 +187,6 @@
                                                 <rect key="frame" x="8" y="907" width="398" height="34"/>
                                                 <color key="backgroundColor" red="0.81847466362847221" green="0.81847466362847221" blue="0.81847466362847221" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>

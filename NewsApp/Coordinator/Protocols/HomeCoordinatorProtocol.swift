@@ -8,6 +8,6 @@
 import Foundation
 
 
-protocol HomeCoordinatorProtocol {
+protocol HomeCoordinatorProtocol : CoordinatorProtocol {
     func navigateToArticleDetailsViewController(_ article:Article)
 }
