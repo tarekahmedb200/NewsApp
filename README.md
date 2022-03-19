@@ -8,14 +8,12 @@
 - SnapKit 
 - Rxswift 
 
-##  software design pattern Used : 
+## Software Design PatternS Used : 
 - MVVM 
-- Dependency injection 
-- Dependency inverion 
+- Dependency Injection 
+- Dependency Inversion 
 
 ## Screen Shots 
-
-
 
 ![Simulator Screen Shot - iPhone 8 - 2022-03-19 at 13 27 48](https://user-images.githubusercontent.com/35314267/159119317-f2ea2cac-9c25-46fd-9374-c26a1919d0a0.png)
 
